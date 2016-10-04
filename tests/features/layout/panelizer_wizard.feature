@@ -114,8 +114,7 @@ Feature: Panelizer Wizard
     And I place the "help_block" block from the "Help" category
     And I save the layout
     And I click "Edit draft"
-    And I press "Save"
-    Then I should see a "help_block" block
+    Then I should see "Custom override"
 
   @javascript
   Scenario: Create a new layout using the Panelizer Wizard
