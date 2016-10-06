@@ -95,7 +95,8 @@
                 "2786795 - DrupalConsole integration breaks Drush":
                 "https://www.drupal.org/files/issues/metatag-deactivate_drupalconsole_services_0.patch"
             }
-        }
+        },
+        "enable-patching": true
     },
     "require": {
         "cweagans/composer-patches": "^1.5.0",
