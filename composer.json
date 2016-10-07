@@ -24,7 +24,8 @@
         "squizlabs/php_codesniffer": "2.*"
     },
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin/",
+        "cache-dir": "./.composer-cache"
     },
     "repositories": [
         {
