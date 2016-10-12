@@ -11,7 +11,8 @@ default:
   extensions:
     Behat\MinkExtension:
       goutte: ~
-      selenium2: ~
+      selenium2:
+        browser: chrome
     Drupal\DrupalExtension:
       api_driver: drupal
       blackbox: ~
