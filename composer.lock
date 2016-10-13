@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1475a97cf04a9014322e88b74d159ab4",
-    "content-hash": "7fbfa92d78f8ab79dfc89c8971e5d193",
+    "hash": "bdb41bf20addc7cad579917abe370b75",
+    "content-hash": "3945ad69959d2c9330cbfa6772b90948",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -49,6 +49,51 @@
                 "stack"
             ],
             "time": "2016-08-01 12:05:04"
+        },
+        {
+            "name": "clue/graph",
+            "version": "v0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clue/graph.git",
+                "reference": "0336a4d5229fa61a20ccceaeab25e52ac9542700"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/graph/zipball/0336a4d5229fa61a20ccceaeab25e52ac9542700",
+                "reference": "0336a4d5229fa61a20ccceaeab25e52ac9542700",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "graphp/algorithms": "Common graph algorithms, such as Dijkstra and Moore-Bellman-Ford (shortest path), minimum spanning tree (MST), Kruskal, Prim and many more..",
+                "graphp/graphviz": "GraphViz graph drawing / DOT output"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fhaculty\\Graph\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A mathematical graph/network library written in PHP",
+            "homepage": "https://github.com/clue/graph",
+            "keywords": [
+                "edge",
+                "graph",
+                "mathematical",
+                "network",
+                "vertex"
+            ],
+            "time": "2015-03-07 18:11:31"
         },
         {
             "name": "composer/installers",
@@ -1114,34 +1159,6 @@
             "time": "2016-09-08 18:41:50"
         },
         {
-            "name": "drupal/entity_storage_migrate",
-            "version": "dev-8.x-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/entity_storage_migrate.git",
-                "reference": "792dd730f32c737acef1d7292e91e2502900ff03"
-            },
-            "require": {
-                "drupal/core": "8.*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-8.x-1.x": "8.1.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.drupal-composer.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "This module makes it possible to install modules that provide new entity storage handlers on sites that already have entity data on the site.",
-            "homepage": "http://drupal.org/project/entity_storage_migrate",
-            "keywords": [
-                "Drupal"
-            ],
-            "time": "2016-08-11 08:38:41"
-        },
-        {
             "name": "drupal/features",
             "version": "8.3.0-rc1",
             "source": {
@@ -1529,24 +1546,18 @@
         },
         {
             "name": "drupal/multiversion",
-            "version": "8.1.0-alpha10",
+            "version": "dev-8.x-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/multiversion.git",
-                "reference": "1eb13a4919e27aef8d2557747402bd96686e07b1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/multiversion-8.x-1.0-alpha10.zip",
-                "reference": null,
-                "shasum": null
+                "reference": "8e6c5340a36a3f7d2c8a725baf2fd7c2528eba97"
             },
             "require": {
                 "drupal/core": "8.*",
-                "drupal/entity_storage_migrate": "8.*",
                 "drupal/key_value": "8.*",
                 "drupal/serialization": "8.*",
-                "drupal/system": ">=8.1.0"
+                "drupal/system": ">=8.1.0",
+                "relaxedws/lca": "dev-master"
             },
             "type": "drupal-module",
             "extra": {
@@ -1560,7 +1571,7 @@
             ],
             "description": "Extends the revision support for content entities.",
             "homepage": "https://www.drupal.org/project/multiversion",
-            "time": "2016-08-04 07:28:39"
+            "time": "2016-10-12 21:07:04"
         },
         {
             "name": "drupal/page_manager",
@@ -2120,6 +2131,56 @@
             "time": "2016-07-03 21:52:18"
         },
         {
+            "name": "graphp/algorithms",
+            "version": "v0.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/graphp/algorithms.git",
+                "reference": "81db4049c35730767ec8f97fb5c4844234b86cef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/graphp/algorithms/zipball/81db4049c35730767ec8f97fb5c4844234b86cef",
+                "reference": "81db4049c35730767ec8f97fb5c4844234b86cef",
+                "shasum": ""
+            },
+            "require": {
+                "clue/graph": "~0.9.0|~0.8.0",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Graphp\\Algorithms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@lueck.tv"
+                }
+            ],
+            "description": "Common mathematical graph algorithms",
+            "homepage": "https://github.com/graphp/algorithms",
+            "keywords": [
+                "Graph algorithms",
+                "dijkstra",
+                "kruskal",
+                "minimum spanning tree",
+                "moore-bellman-ford",
+                "prim",
+                "shortest path"
+            ],
+            "time": "2015-03-08 10:12:01"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.2",
             "source": {
@@ -2633,6 +2694,36 @@
                 "psr-3"
             ],
             "time": "2016-10-10 12:19:37"
+        },
+        {
+            "name": "relaxedws/lca",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/relaxedws/lca.git",
+                "reference": "d68f9c7e4bad1ddd081cf314f438299f1421c2bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/relaxedws/lca/zipball/d68f9c7e4bad1ddd081cf314f438299f1421c2bd",
+                "reference": "d68f9c7e4bad1ddd081cf314f438299f1421c2bd",
+                "shasum": ""
+            },
+            "require": {
+                "graphp/algorithms": "~0.8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Relaxed\\LCA\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Library used to find lowest common ancestor in graphs.",
+            "time": "2016-08-03 08:34:39"
         },
         {
             "name": "stack/builder",
@@ -4783,7 +4874,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
-                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -5651,16 +5742,16 @@
         },
         {
             "name": "phing/phing",
-            "version": "2.15.1",
+            "version": "2.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "16f6372d9bf71783abea98fdd8cd9cb4ecb3bf41"
+                "reference": "0999ab4e94e609dc00998e3d1b88df843054db7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/16f6372d9bf71783abea98fdd8cd9cb4ecb3bf41",
-                "reference": "16f6372d9bf71783abea98fdd8cd9cb4ecb3bf41",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/0999ab4e94e609dc00998e3d1b88df843054db7c",
+                "reference": "0999ab4e94e609dc00998e3d1b88df843054db7c",
                 "shasum": ""
             },
             "require": {
@@ -5740,7 +5831,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2016-10-11 09:24:10"
+            "time": "2016-10-13 09:01:45"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -7227,7 +7318,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/multiversion": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
