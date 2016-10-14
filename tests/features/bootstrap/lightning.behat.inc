@@ -11,12 +11,11 @@ use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Drupal\DrupalExtension\Context\DrupalSubContextBase;
-use Drupal\DrupalExtension\Context\DrupalSubContextInterface;
 
 /**
  * Sub context for Lightning step definitions.
  */
-class LightningSubContext extends DrupalSubContextBase implements DrupalSubContextInterface {
+class LightningSubContext extends DrupalSubContextBase {
 
   /**
    * The Mink context.
@@ -61,7 +60,6 @@ class LightningSubContext extends DrupalSubContextBase implements DrupalSubConte
    */
   public function clickElementBySelector($selector) {
     $session = $this->getSession();
-
     $element = $session->getPage()->find('css', $selector);
     if ($element) {
       try {
@@ -368,6 +366,79 @@ class LightningSubContext extends DrupalSubContextBase implements DrupalSubConte
     if (!$element->hasAttribute('disabled')) {
       throw new ExpectationException("Expected '{$field}' field to be disabled.", $this->getSession()->getDriver());
     }
+  }
+
+  /**
+   * Asserts that a select list does not have a specific option.
+   *
+   * @param string $field
+   *   The select list to check.
+   * @param string $option
+   *   The option to look for.
+   *
+   * @Then :field should not have a(n) :option option
+   */
+  public function assertOptionNotExists($field, $option) {
+    $assert = $this->assertSession();
+    $field = $assert->fieldExists($field);
+    $assert->elementNotExists('named', ['option', $option], $field);
+  }
+
+  /**
+   * Asserts that a link is not present.
+   *
+   * @param string $locator
+   *   The link title, ID, or text.
+   *
+   * @Then I should not see a(n) :locator link
+   */
+  public function assertLinkNotExists($locator) {
+    $this->assertSession()
+      ->elementNotExists('named', ['link', $locator]);
+  }
+
+  /**
+   * Submits the image browser.
+   *
+   * @When I submit the entity browser
+   */
+  public function submitEntityBrowser() {
+    $this->getSession()
+      ->executeScript('window.frames["entity_browser_iframe_image_browser"].document.forms[0].op.click()');
+  }
+
+  /**
+   * Switches to an iframe.
+   *
+   * @param string $name
+   *   The iframe name.
+   *
+   * @When I switch to the :name frame
+   */
+  public function switchToFrame($name) {
+    $this->getSession()->switchToIFrame($name);
+  }
+
+  /**
+   * Schedules a node for publication.
+   *
+   * @param string $when
+   *   The date and time at which to publish the node, in the format
+   *   YYYY-MM-DD HH:MM:SS.
+   *
+   * @When I schedule the node to be published at :when
+   */
+  public function schedulePublication($when) {
+    $this->minkContext->pressButton('Add new scheduled update');
+    $this->minkContext->iWaitForAjaxToFinish();
+
+    list ($date, $time) = explode(' ', $when, 2);
+    $this->minkContext->fillField('scheduled_update[form][inline_entity_form][update_timestamp][0][value][date]', $date);
+    $this->minkContext->fillField('scheduled_update[form][inline_entity_form][update_timestamp][0][value][time]', $time);
+    $this->minkContext->selectOption('scheduled_update[form][inline_entity_form][field_moderation_state]', 'published');
+
+    $this->minkContext->pressButton('Create scheduled update');
+    $this->minkContext->iWaitForAjaxToFinish();
   }
 
 }
